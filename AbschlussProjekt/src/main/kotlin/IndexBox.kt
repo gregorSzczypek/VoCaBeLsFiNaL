@@ -10,11 +10,10 @@ class IndexBox(
 ) {
 
     fun createNewWord() {
-        var wordType = "" // Adjective, verb or noun
-        var motherTongueWord = ""  // Temporary variable for word to add
-        var learningLanguageWord = "" // Temporary variable for word language
-        //var activeCreate = true // Check if user wants to add another language
-        var anotherWordChoice = "" // saves string to determine if users wants to save another language
+        var wordType = ""
+        var motherTongueWord = ""
+        var learningLanguageWord = ""
+        var anotherWordChoice = ""
 
         wordType = saveReadIn("Please type in a valid wordtype", listOf("adjective", "verb", "noun")
         )

@@ -27,7 +27,7 @@ fun openMenu() {
             }
 
             "2" -> {
-                createNewIndexBox()
+                createNewIndexBox() // Only function working right away to create a new wordbxo and start the programm
             }
 
             "3" -> {
@@ -67,8 +67,11 @@ fun openMenu() {
             }
 
             "exit" -> {
-                //Data.writeBytes(allIndexBoxes.toByteArray())
-                exitProcess(0)
+                var exitConfirmation = saveReadIn("Do you really want to exit the programm?", listOf("yes", "no"))
+                if (exitConfirmation == "yes") {
+                    // This line is reserved for saving the current status of list allIndexBoxes
+                    exitProcess(0)
+                } else openMenu()
             }
         }
     }

@@ -2,7 +2,7 @@ import kotlin.concurrent.thread
 import kotlin.system.exitProcess
 
 // saveReadIn gets a String with a input prompt and a list of Strings with valid input-options
-fun saveReadIn(question: String, allowedWords: List<String>): String { // TODO implement warning message
+fun saveReadIn(question: String, allowedWords: List<String>): String {
     while (true) {
         var input = ""
         println(question)
@@ -37,6 +37,7 @@ fun readlnNotEmpty(question: String, warning: String): String {
     }
 }
 
+// Creates a list of Strings with the names of all wordboxes for further usage and defining indexes etc...
 fun stringListOfAllBoxes(): List<String>{
     var listObjectToString: MutableList<String> = mutableListOf()
 

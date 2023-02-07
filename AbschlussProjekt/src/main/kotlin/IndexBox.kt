@@ -161,7 +161,7 @@ class IndexBox(
         for (i in this.nounsList){
             sumOfConfidences = sumOfConfidences + i.confidence
         }
-        println("Sum of confidences: $sumOfConfidences%")
+        //println("Sum of confidences: $sumOfConfidences%")
         confIndexBox = sumOfConfidences / (this.adjectivesList.size + this.verbsList.size + this.nounsList.size).toDouble()
 
         this.confidence = confIndexBox.toInt()

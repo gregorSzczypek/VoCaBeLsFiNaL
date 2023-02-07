@@ -194,7 +194,9 @@ fun deleteIndexBox() {
 
 fun showAllWordboxes() { // TODO format statistics output
 
+
     for (i in allIndexBoxes){
+        i.refreshConfidenceOfIndexBox()
         println(yellowBG + black + "${i.indexBoxName.uppercase()} - ${i.confidence}%                                                  " +reset)
         println(purple + "ADJECTIVES" + reset)
         for (j in i.adjectivesList){

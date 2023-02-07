@@ -46,7 +46,7 @@ class IndexBox(
                     anotherWordChoice = saveReadIn("Do you want to add another word?", listOf("yes", "no"))
                     if (anotherWordChoice == "yes") {
                         continue
-                    } else break
+                    } else openMenu()
                 }
                 println(adjectivesList)
             }
@@ -68,7 +68,7 @@ class IndexBox(
 
                     if (CheckExistence){
                         println(red + "Word already created, try a different one..." + reset)
-                        createNewWord()
+                        createNewWord() // TODO not sure if bug or feature...
                     }else {
                         verbsList.add(Verbs(motherTongueWord, learningLanguageWord))
                         println("Word saved successfully!")
@@ -77,7 +77,7 @@ class IndexBox(
                     anotherWordChoice = saveReadIn("Do you want to add another word?", listOf("yes", "no"))
                     if (anotherWordChoice == "yes") {
                         continue
-                    } else break
+                    } else openMenu()
                 }
                 println(verbsList)
             }
@@ -108,9 +108,8 @@ class IndexBox(
                     anotherWordChoice = saveReadIn("Do you want to add another word?", listOf("yes", "no"))
                     if (anotherWordChoice == "yes") {
                         continue
-                    } else break
+                    } else openMenu()
                 }
-                println(nounsList)
             }
         }
     }

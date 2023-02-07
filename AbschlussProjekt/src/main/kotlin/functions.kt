@@ -229,42 +229,66 @@ fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): Mut
     println(amountLvl3)
     println(amountLvl4)
 
-    for (i in currentBox.adjectivesList) {
-        if (i.confidence >= 0 && i.confidence <= 25) {
-            allWordsListLvl1.add(i)
-        } else if (i.confidence > 25 && i.confidence <= 50) {
-            allWordsListLvl2.add(i)
-        } else if (i.confidence > 50 && i.confidence <= 75) {
-            allWordsListLvl3.add(i)
-        } else if (i.confidence > 75 && i.confidence <= 100) {
-            allWordsListLvl4.add(i)
+    var adjectivesSaved = true
+    var verbsSaved = true
+    var nounsSaved = true
+
+    try {
+        for (i in currentBox.adjectivesList) {
+            if (i.confidence >= 0 && i.confidence <= 25) {
+                allWordsListLvl1.add(i)
+            } else if (i.confidence > 25 && i.confidence <= 50) {
+                allWordsListLvl2.add(i)
+            } else if (i.confidence > 50 && i.confidence <= 75) {
+                allWordsListLvl3.add(i)
+            } else if (i.confidence > 75 && i.confidence <= 100) {
+                allWordsListLvl4.add(i)
+            }
         }
+    } catch (e: Exception) {
+        println("No Adjectives saved")
+        adjectivesSaved = false
     }
 
-    for (i in currentBox.nounsList) {
+    try {
+        for (i in currentBox.nounsList) {
 
-        if (i.confidence >= 0 && i.confidence <= 25) {
-            allWordsListLvl1.add(i)
-        } else if (i.confidence > 25 && i.confidence <= 50) {
-            allWordsListLvl2.add(i)
-        } else if (i.confidence > 50 && i.confidence <= 75) {
-            allWordsListLvl3.add(i)
-        } else if (i.confidence > 75 && i.confidence <= 100) {
-            allWordsListLvl4.add(i)
+            if (i.confidence >= 0 && i.confidence <= 25) {
+                allWordsListLvl1.add(i)
+            } else if (i.confidence > 25 && i.confidence <= 50) {
+                allWordsListLvl2.add(i)
+            } else if (i.confidence > 50 && i.confidence <= 75) {
+                allWordsListLvl3.add(i)
+            } else if (i.confidence > 75 && i.confidence <= 100) {
+                allWordsListLvl4.add(i)
+            }
         }
+    }catch (e: Exception) {
+        println("No nouns saved")
+        nounsSaved = false
     }
 
-    for (i in currentBox.verbsList) {
+    try {
+        for (i in currentBox.verbsList) {
 
-        if (i.confidence >= 0 && i.confidence <= 25) {
-            allWordsListLvl1.add(i)
-        } else if (i.confidence > 25 && i.confidence <= 50) {
-            allWordsListLvl3.add(i)
-        } else if (i.confidence > 50 && i.confidence <= 75) {
-            allWordsListLvl3.add(i)
-        } else if (i.confidence > 75 && i.confidence <= 100) {
-            allWordsListLvl4.add(i)
+            if (i.confidence >= 0 && i.confidence <= 25) {
+                allWordsListLvl1.add(i)
+            } else if (i.confidence > 25 && i.confidence <= 50) {
+                allWordsListLvl3.add(i)
+            } else if (i.confidence > 50 && i.confidence <= 75) {
+                allWordsListLvl3.add(i)
+            } else if (i.confidence > 75 && i.confidence <= 100) {
+                allWordsListLvl4.add(i)
+            }
         }
+    } catch (e: Exception) {
+        println("No verbs saved")
+        verbsSaved = false
+    }
+
+    if (nounsSaved == false && verbsSaved == false && adjectivesSaved == false){
+        println("Wordbox empty, create words...")
+        createNewWord()
     }
 
     var allLvlWordList = mutableListOf<Word>()
@@ -347,7 +371,12 @@ fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): Mut
         }
     }
     while (choiceList.size < numberOfRounds) {
-        choiceList.add(allLvlWordList.random())
+        try {
+            choiceList.add(allLvlWordList.random())
+        } catch (e: Exception) {
+            println("No words saved, create word.")
+            createNewWord()
+        }
     }
     println("ChoiceList:" + choiceList)
     return choiceList

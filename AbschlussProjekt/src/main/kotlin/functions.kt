@@ -192,38 +192,25 @@ fun deleteIndexBox() {
     }
 }
 
-//fun showAllWordboxes() { // TODO format statistics output
-//
-//    for (i in allIndexBoxes){
-//        i.refreshConfidenceOfIndexBox()
-//    }
-//
-//    for (i in allIndexBoxes) {
-//        println(i)
-//        println()
-//        println("Adjectives:                                        Verbs:                                        Nouns:")
-//        for (j in i.adjectivesList) {
-//            println(
-//                "${i.motherTongue}: ${j.mothertongueTranslation} ${i.learningLanguage}: " +
-//                        "${j.learningLanguageTranslation} Confidence: ${j.confidence}"
-//            )
-//        }
-//        println("Verbs:")
-//        for (k in i.verbsList) {
-//            println(
-//                "                               ${i.motherTongue}: ${k.mothertongueTranslation} ${i.learningLanguage}: " +
-//                        "${k.learningLanguageTranslation} Confidence: ${k.confidence}"
-//            )
-//        }
-//        println("Nouns:")
-//        for (l in i.nounsList) {
-//            println(
-//                "                                                           ${i.motherTongue}: ${l.mothertongueTranslation} ${i.learningLanguage}: " +
-//                        "${l.learningLanguageTranslation} Confidence: ${l.confidence}"
-//            )
-//        }
-//    }
-//}
+fun showAllWordboxes() { // TODO format statistics output
+
+    for (i in allIndexBoxes){
+        println(yellowBG + black + i.motherTongue.uppercase() +reset)
+        println(purple + "ADJECTIVES" + reset)
+        for (j in i.adjectivesList){
+            println("${j.mothertongueTranslation} - ${j.confidence}%")
+        }
+        println(purple + "VERBS" + reset)
+        for (k in i.verbsList){
+            println("${k.mothertongueTranslation} - ${k.confidence}%")
+        }
+        println(purple + "NOUNS" + reset)
+        for (l in i.nounsList){
+            println("${l.mothertongueTranslation} - ${l.confidence}%")
+        }
+        println(blueBG + "                                                              " + reset)
+    }
+}
 
 fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): MutableList<Word> {
     var choiceList = mutableListOf<Word>() // Final list for training session

@@ -1,4 +1,3 @@
-import java.io.File
 import kotlin.system.exitProcess
 
 fun openMenu() {
@@ -6,13 +5,13 @@ fun openMenu() {
 
     while (true) {
         println("What would you like to do?")
-        println("1 - training")
-        println("2 - create new index box")
-        println("3 - create new word")
-        println("4 - delete word")
-        println("5 - show saved wordboxes")
-        println("6 - delete wordbox")
-        println("exit")
+        println(purple + "1 - training" + reset)
+        println(purple + "2 - create new index box" + reset)
+        println(purple + "3 - create new word" + reset)
+        println(purple + "4 - delete word" + reset)
+        println(purple + "5 - show saved wordboxes" + reset)
+        println(purple + "6 - delete wordbox" + reset)
+        println(red + "exit" + reset)
         println()
         choiceOfAction = saveReadIn("Please enter your choice:", listOf("1", "2", "3", "4", "5", "6", "exit"))
 
@@ -27,7 +26,7 @@ fun openMenu() {
             }
 
             "2" -> {
-                createNewIndexBox() // Only function working right away to create a new wordbxo and start the programm
+                createNewIndexBox() // Only function working right away to create a new wordbox and start the programm
             }
 
             "3" -> {

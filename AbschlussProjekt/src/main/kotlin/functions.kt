@@ -33,7 +33,7 @@ fun training() {
             println("times called: ${questionAdjective.timesCalled}")
 
             if (answer == questionAdjective.learningLanguageTranslation) {
-                println("You are amazing, the answer is right!")
+                println(green + "You are amazing, the answer is right!" + reset)
                 questionAdjective.timesRight += 1
                 questionAdjective.slidingWindowList.removeAt(0)
                 questionAdjective.slidingWindowList.add(1)
@@ -59,7 +59,7 @@ fun training() {
             println("times called: ${questionVerb.timesCalled}")
 
             if (answer == questionVerb.learningLanguageTranslation) {
-                println("You are amazing, the answer is right!")
+                println(green + "You are amazing, the answer is right!" + reset)
                 questionVerb.timesRight += 1
                 questionVerb.slidingWindowList.removeAt(0)
                 questionVerb.slidingWindowList.add(1)
@@ -85,7 +85,7 @@ fun training() {
             println("times called: ${questionNoun.timesCalled}")
 
             if (answer == questionNoun.learningLanguageTranslation) {
-                println("You are amazing, the answer is right!")
+                println(green + "You are amazing, the answer is right!" + reset)
                 questionNoun.timesRight += 1
                 questionNoun.slidingWindowList.removeAt(0)
                 questionNoun.slidingWindowList.add(1)
@@ -184,46 +184,46 @@ fun deleteIndexBox() {
         val confirmation = saveReadIn(red + "Do you really want to remove wordbox $nameToDelete?" + reset, listOf("yes", "no"))
         if (confirmation == "yes") {
             allIndexBoxes.removeAt(j)
-            println("Wordbox $nameToDelete was removed successfully")
+            println(green + "Wordbox $nameToDelete was removed successfully" + reset)
         } else openMenu()
     } else {
-        println("Invalid name")
+        println(red + "Invalid name" + reset)
         deleteIndexBox()
     }
 }
 
-fun showAllWordboxes() { // TODO format statistics output
-
-    for (i in allIndexBoxes){
-        i.refreshConfidenceOfIndexBox()
-    }
-
-    for (i in allIndexBoxes) {
-        println(i)
-        println()
-        println("Adjectives:                                        Verbs:                                        Nouns:")
-        for (j in i.adjectivesList) {
-            println(
-                "${i.motherTongue}: ${j.mothertongueTranslation} ${i.learningLanguage}: " +
-                        "${j.learningLanguageTranslation} Confidence: ${j.confidence}"
-            )
-        }
-        println("Verbs:")
-        for (k in i.verbsList) {
-            println(
-                "                               ${i.motherTongue}: ${k.mothertongueTranslation} ${i.learningLanguage}: " +
-                        "${k.learningLanguageTranslation} Confidence: ${k.confidence}"
-            )
-        }
-        println("Nouns:")
-        for (l in i.nounsList) {
-            println(
-                "                                                           ${i.motherTongue}: ${l.mothertongueTranslation} ${i.learningLanguage}: " +
-                        "${l.learningLanguageTranslation} Confidence: ${l.confidence}"
-            )
-        }
-    }
-}
+//fun showAllWordboxes() { // TODO format statistics output
+//
+//    for (i in allIndexBoxes){
+//        i.refreshConfidenceOfIndexBox()
+//    }
+//
+//    for (i in allIndexBoxes) {
+//        println(i)
+//        println()
+//        println("Adjectives:                                        Verbs:                                        Nouns:")
+//        for (j in i.adjectivesList) {
+//            println(
+//                "${i.motherTongue}: ${j.mothertongueTranslation} ${i.learningLanguage}: " +
+//                        "${j.learningLanguageTranslation} Confidence: ${j.confidence}"
+//            )
+//        }
+//        println("Verbs:")
+//        for (k in i.verbsList) {
+//            println(
+//                "                               ${i.motherTongue}: ${k.mothertongueTranslation} ${i.learningLanguage}: " +
+//                        "${k.learningLanguageTranslation} Confidence: ${k.confidence}"
+//            )
+//        }
+//        println("Nouns:")
+//        for (l in i.nounsList) {
+//            println(
+//                "                                                           ${i.motherTongue}: ${l.mothertongueTranslation} ${i.learningLanguage}: " +
+//                        "${l.learningLanguageTranslation} Confidence: ${l.confidence}"
+//            )
+//        }
+//    }
+//}
 
 fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): MutableList<Word> {
     var choiceList = mutableListOf<Word>() // Final list for training session

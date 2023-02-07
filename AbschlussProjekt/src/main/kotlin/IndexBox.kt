@@ -112,10 +112,7 @@ class IndexBox(
                 }
                 println(nounsList)
             }
-
-            //else -> println("Invalid input, please choose from adjective, verb or noun.")
         }
-        //println("Please type in your word")
     }
 
 

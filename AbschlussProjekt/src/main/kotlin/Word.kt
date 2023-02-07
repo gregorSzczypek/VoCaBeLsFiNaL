@@ -5,7 +5,7 @@ open class Word(
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     ),
-    var confidence: Int = 0,
+    var confidence: Int = 0
 ) {
 
     fun refreshConfidence() { // sliding window calculation

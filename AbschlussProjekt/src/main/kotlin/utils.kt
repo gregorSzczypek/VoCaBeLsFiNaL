@@ -1,20 +1,20 @@
-import kotlin.concurrent.thread
-import kotlin.system.exitProcess
+import java.io.File
+//import com.google.gson.GSON
 
 // saveReadIn gets a String with a input prompt and a list of Strings with valid input-options
 fun saveReadIn(question: String, allowedWords: List<String>): String {
     while (true) {
         var input = ""
         println(question)
-        println("Or type help to see available options or exit to escape")
+        println("Or type help to see available options or cancel to escape")
         input = readln().lowercase()
         if (allowedWords.contains(input)) {
             //println("Input accepted")
             println()
             return input
         } else if (input == "help") {
-            println(allowedWords + "exit")
-        } else if (input == "exit") {
+            println(allowedWords + "cancel")
+        } else if (input == "cancel") {
             println("Going back home...")
             Thread.sleep(1200)
             openMenu()
@@ -45,4 +45,12 @@ fun stringListOfAllBoxes(): List<String>{
         listObjectToString.add(i.indexBoxName)
     }
     return listObjectToString
+}
+
+fun saveData(filepath: String){
+    val filepath = "Abschlussprojekt/Data.json"
+    val DataFile = File(filepath)
+    //DataFile.write
+
+
 }

@@ -195,7 +195,7 @@ fun deleteIndexBox() {
 fun showAllWordboxes() { // TODO format statistics output
 
     for (i in allIndexBoxes){
-        println(yellowBG + black + i.motherTongue.uppercase() +reset)
+        println(yellowBG + black + "${i.indexBoxName.uppercase()} - ${i.confidence}%                                                  " +reset)
         println(purple + "ADJECTIVES" + reset)
         for (j in i.adjectivesList){
             println("${j.mothertongueTranslation} - ${j.confidence}%")
@@ -208,7 +208,6 @@ fun showAllWordboxes() { // TODO format statistics output
         for (l in i.nounsList){
             println("${l.mothertongueTranslation} - ${l.confidence}%")
         }
-        println(blueBG + "                                                              " + reset)
     }
 }
 

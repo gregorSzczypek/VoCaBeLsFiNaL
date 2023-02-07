@@ -7,12 +7,13 @@ fun saveReadIn(question: String, allowedWords: List<String>): String {
         var input = ""
         println(question)
         println("Or type help to see available options or cancel to escape")
-        input = readln().lowercase()
+        input = readln()
         if (allowedWords.contains(input)) {
             //println("Input accepted")
             println()
             return input
         } else if (input == "help") {
+            println("Choose from:")
             println(allowedWords + "cancel")
         } else if (input == "cancel") {
             println("Going back home...")
@@ -29,7 +30,7 @@ fun readlnNotEmpty(question: String, warning: String): String {
     var userInput = ""
     while (true) {
         println(question)
-        userInput = readln().lowercase()
+        userInput = readln()
         if (userInput == "") {
             println(warning)
             continue
@@ -51,6 +52,4 @@ fun saveData(filepath: String){
     val filepath = "Abschlussprojekt/Data.json"
     val DataFile = File(filepath)
     //DataFile.write
-
-
 }

@@ -117,32 +117,32 @@ class IndexBox(
 
     fun deleteWord() {
         var allWordsMotherTongueString = mutableListOf<String>()
-        for (i in adjectivesList){
+        for (i in this.adjectivesList){
             allWordsMotherTongueString.add(i.mothertongueTranslation)
         }
-        for (i in verbsList){
+        for (i in this.verbsList){
             allWordsMotherTongueString.add(i.mothertongueTranslation)
         }
-        for (i in nounsList){
+        for (i in this.nounsList){
             allWordsMotherTongueString.add(i.mothertongueTranslation)
         }
 
         var wordToDelete = saveReadIn("Which word do you want to delete?", allWordsMotherTongueString)
-        for (i in adjectivesList){
+        for (i in this.adjectivesList){
             if (i.mothertongueTranslation == wordToDelete){
-                adjectivesList.remove(i)
+                this.adjectivesList.remove(i)
                 break
             }
         }
-        for (i in verbsList){
+        for (i in this.verbsList){
             if (i.mothertongueTranslation == wordToDelete){
-                verbsList.remove(i)
+                this.verbsList.remove(i)
                 break
             }
         }
-        for (i in nounsList){
+        for (i in this.nounsList){
             if (i.mothertongueTranslation == wordToDelete){
-                nounsList.remove(i)
+                this.nounsList.remove(i)
                 break
             }
         }

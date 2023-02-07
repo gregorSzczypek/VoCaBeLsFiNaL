@@ -22,6 +22,7 @@ fun training() {
         var currentBox = allIndexBoxes[stringListOfAllBoxes().indexOf(boxForTrainingSession)]
         choiceList.shuffle()
         var questionWord = choiceList.random()
+        choiceList.remove(questionWord)
 
         // Confidence calculation for adjectives
         if (currentBox.adjectivesList.contains(questionWord)) {
@@ -370,6 +371,7 @@ fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): Mut
             choiceList.add(addWord)
             restOfWordsList.remove(addWord)
         } catch (e: Exception) {
+            println("Not enough words left, creating list anyway :-)")
             break
         }
     }
@@ -377,7 +379,7 @@ fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): Mut
         try {
             choiceList.add(allLvlWordList.random())
         } catch (e: Exception) {
-            println("No words saved, create word.")
+            println("No words in chosen Wordbox")
             createNewWord()
         }
     }

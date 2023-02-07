@@ -10,7 +10,7 @@ val blueBG = "\u001B[44m"
 
 
 fun main() {
-    println(yellowBG + black + "Welcome to VoCaBeLs!" + reset)
+    println(yellowBG + black + "Welcome to VoCaBeLs!".padEnd(57) + reset)
     println()
     Thread.sleep(1200)
     openMenu()

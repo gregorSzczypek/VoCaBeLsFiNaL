@@ -197,7 +197,7 @@ fun showAllWordboxes() { // TODO format statistics output
 
     for (i in allIndexBoxes){
         i.refreshConfidenceOfIndexBox()
-        println(yellowBG + black + "${i.indexBoxName.uppercase()} - ${i.confidence}%                                                  " +reset)
+        println(yellowBG + black + "${i.indexBoxName.uppercase()} - ${i.confidence}%".padEnd(57) + reset)
         println(purple + "ADJECTIVES" + reset)
         for (j in i.adjectivesList){
             println("${j.mothertongueTranslation} - ${j.confidence}%")
@@ -211,6 +211,7 @@ fun showAllWordboxes() { // TODO format statistics output
             println("${l.mothertongueTranslation} - ${l.confidence}%")
         }
     }
+    println()
 }
 
 fun createChoiceOfWords(numberOfRounds: Int, boxForTrainingSession: String): MutableList<Word> {

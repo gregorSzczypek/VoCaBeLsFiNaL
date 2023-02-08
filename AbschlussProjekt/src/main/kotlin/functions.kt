@@ -41,6 +41,7 @@ fun training() {
                 println("Sliding window: ${questionAdjective.slidingWindowList}")
                 questionAdjective.refreshConfidence()
                 println("The new conf for word $questionString is ${questionAdjective.confidence}")
+                println()
             } else {
                 println(red + "The answer was wrong :-(" + reset)
                 questionAdjective.slidingWindowList.removeAt(0)
@@ -48,6 +49,7 @@ fun training() {
                 println("Sliding window: ${questionAdjective.slidingWindowList}")
                 questionAdjective.refreshConfidence()
                 println("The new conf for word $questionString is ${questionAdjective.confidence}")
+                println()
             }
         }
         // Confidence calculation for verbs
@@ -67,6 +69,7 @@ fun training() {
                 println("Sliding window: ${questionVerb.slidingWindowList}")
                 questionVerb.refreshConfidence()
                 println("The new conf for word $questionString is ${questionVerb.confidence}")
+                println()
             } else {
                 println(red + "The answer was wrong :-(" + reset)
                 questionVerb.slidingWindowList.removeAt(0)
@@ -74,6 +77,7 @@ fun training() {
                 println("Sliding window: ${questionVerb.slidingWindowList}")
                 questionVerb.refreshConfidence()
                 println("The new conf for word $questionString is ${questionVerb.confidence}")
+                println()
             }
         }
         // Confidence calculation for nouns
@@ -93,6 +97,7 @@ fun training() {
                 println("Sliding window: ${questionNoun.slidingWindowList}")
                 questionNoun.refreshConfidence()
                 println("The new conf for word $questionString is ${questionNoun.confidence}")
+                println()
             } else {
                 println(red + "The answer was wrong :-(" + reset)
                 questionNoun.slidingWindowList.removeAt(0)
@@ -100,6 +105,7 @@ fun training() {
                 println("Sliding window: ${questionNoun.slidingWindowList}")
                 questionNoun.refreshConfidence()
                 println("The new conf for word $questionString is ${questionNoun.confidence}")
+                println()
             }
         }
     }
